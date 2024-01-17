@@ -1,14 +1,15 @@
 package com.norpix.drawdate;
 
-import java.time.LocalDateTime;
+import java.time.DayOfWeek;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
+import java.time.temporal.TemporalAdjusters;
 
 public class DrawDateFacade {
-
-    public LocalDateTime nextDrawDate(LocalDateTime date){
-        LocalDateTime now = LocalDateTime.now();
-        // wzgledem date (11-01-2024)
-        // oddaje kolejna sobote
-        // return date (13-01-2024)
-        return now;
+    public String nextDrawDate(LocalDate date){
+        String closestDrawDate = date.with(TemporalAdjusters.next(DayOfWeek.SATURDAY))
+                .format(DateTimeFormatter.ofLocalizedDate(FormatStyle.SHORT));
+        return closestDrawDate + " 12:00";
     }
 }
