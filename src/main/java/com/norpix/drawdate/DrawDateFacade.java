@@ -8,8 +8,9 @@ import java.time.temporal.TemporalAdjusters;
 
 public class DrawDateFacade {
     public String nextDrawDate(LocalDate date){
-        String closestDrawDate = date.with(TemporalAdjusters.next(DayOfWeek.SATURDAY))
-                .format(DateTimeFormatter.ofLocalizedDate(FormatStyle.SHORT));
-        return closestDrawDate + " 12:00";
+        LocalDate closestDrawDate = (date.with(TemporalAdjusters.next(DayOfWeek.SATURDAY)));
+        String showDayOfWeek = String.valueOf(closestDrawDate.getDayOfWeek());
+        closestDrawDate.format(DateTimeFormatter.ofLocalizedDate(FormatStyle.SHORT));
+        return closestDrawDate + " " + showDayOfWeek + " 12:00";
     }
 }
