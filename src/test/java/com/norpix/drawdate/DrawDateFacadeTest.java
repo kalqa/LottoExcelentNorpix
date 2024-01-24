@@ -1,15 +1,20 @@
 package com.norpix.drawdate;
 
+import com.norpix.drawdate.dto.NextDrawDateDto;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
 
 import static org.assertj.core.api.Assertions.assertThat;
 class DrawDateFacadeTest {
-    DrawDateFacade drawDateFacade = new DrawDateFacade();
     @Test
     public void should_return_next_draw_date_day() {
-        String drawDate = drawDateFacade.nextDrawDate(LocalDate.now());
-        assertThat(drawDate).contains(" SATURDAY 12:00");
+        NextDrawDateDto drawDate = DrawDateFacade.nextDrawDate(LocalDate.now());
+        NextDrawDateDto expectedDrawDateDto = NextDrawDateDto.builder()
+                .closestDrawDate(drawDate.closestDrawDate())
+                .dayOfWeek(drawDate.dayOfWeek())
+                .drawTime(drawDate.drawTime())
+                .build();
+        assertThat(expectedDrawDateDto).isEqualTo(drawDate);
     }
 }
