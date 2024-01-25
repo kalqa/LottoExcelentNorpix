@@ -19,10 +19,12 @@ class NumbersValidator {
         boolean notEnoughNumbers = numbersAmount < CORRECT_SIZE;
         boolean tooMuchNumbers = numbersAmount > CORRECT_SIZE;
 
-        if (notEnoughNumbers)
+        if (notEnoughNumbers) {
             return NOT_ENOUGH_NUMBERS;
-        else if (tooMuchNumbers)
+        }
+        else if (tooMuchNumbers) {
             return TOO_MUCH_NUMBERS;
+        }
         return VALIDATION_PASSED;
     }
 }

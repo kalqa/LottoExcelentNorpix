@@ -2,8 +2,8 @@ package com.norpix.drawdate.dto;
 
 import lombok.Builder;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Builder
-public record NextDrawDateDto(LocalDate closestDrawDate, String dayOfWeek, String drawTime) {
+public record NextDrawDateDto(LocalDateTime closestDrawDate, String dayOfWeek, String drawTime) {
 }
