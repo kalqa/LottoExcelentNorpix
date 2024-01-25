@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Set;
 
 class NumbersValidator {
+    //TODO change Strings to Enum
     private static final int CORRECT_SIZE = 6;
     private static final int MINIMAL_NUMBER_VALUE_FROM_USER = 1;
     private static final int MAXIMAL_NUMBER_VALUE_FROM_USER = 99;
@@ -19,10 +20,12 @@ class NumbersValidator {
         boolean notEnoughNumbers = numbersAmount < CORRECT_SIZE;
         boolean tooMuchNumbers = numbersAmount > CORRECT_SIZE;
 
-        if (notEnoughNumbers)
+        if (notEnoughNumbers) {
             return NOT_ENOUGH_NUMBERS;
-        else if (tooMuchNumbers)
+        }
+        else if (tooMuchNumbers) {
             return TOO_MUCH_NUMBERS;
+        }
         return VALIDATION_PASSED;
     }
 }
