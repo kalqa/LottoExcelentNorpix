@@ -1,8 +1,7 @@
 package com.norpix.numberreceiver;
 
-import com.norpix.drawdate.dto.NextDrawDateDto;
-
+import java.time.LocalDateTime;
 import java.util.Set;
 
-record Ticket(String clientTickedId, NextDrawDateDto drawDate, Set<Integer> numbers) {
+record Ticket(String clientTickedId, LocalDateTime drawDate, Set<Integer> numbers) {
 }

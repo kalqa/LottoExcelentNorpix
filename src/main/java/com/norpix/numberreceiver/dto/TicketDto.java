@@ -1,10 +1,10 @@
 package com.norpix.numberreceiver.dto;
 
-import com.norpix.drawdate.dto.NextDrawDateDto;
 import lombok.Builder;
 
+import java.time.LocalDateTime;
 import java.util.Set;
 
 @Builder
-public record TicketDto(NextDrawDateDto drawDate, String ticketId, Set<Integer> numbers) {
+public record TicketDto(LocalDateTime drawDate, String ticketId, Set<Integer> numbers) {
 }
